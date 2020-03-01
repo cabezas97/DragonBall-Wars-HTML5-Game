@@ -410,27 +410,27 @@ var levels = {
 	// Level data
 	data: [
 		{// First level
-			foreground: 'desert-foreground',
-			background: 'clouds-background',
+			foreground: 'fg1',
+			background: 'bg1',
 			entities: [
 				{ type: "ground", name: "dirt", x: 500, y: 440, width: 1000, height: 20, isStatic: true },
 				{ type: "ground", name: "wood", x: 185, y: 390, width: 30, height: 80, isStatic: true },
 
 				{ type: "block", name: "wood", x: 520, y: 380, angle: 90, width: 100, height: 25 },
 				{ type: "block", name: "glass", x: 520, y: 280, angle: 90, width: 100, height: 25 },
-				{ type: "villain", name: "burger", x: 520, y: 205, calories: 590 },
+				{ type: "villain", name: "saibaman", x: 520, y: 205, calories: 590 },
 
 				{ type: "block", name: "wood", x: 620, y: 380, angle: 90, width: 100, height: 25 },
 				{ type: "block", name: "glass", x: 620, y: 280, angle: 90, width: 100, height: 25 },
-				{ type: "villain", name: "fries", x: 620, y: 205, calories: 420 },
+				{ type: "villain", name: "saibamanblue", x: 620, y: 205, calories: 420 },
 
-				{ type: "hero", name: "orange", x: 80, y: 405 },
-				{ type: "hero", name: "apple", x: 140, y: 405 },
+				{ type: "hero", name: "piccolo", x: 80, y: 405 },
+				{ type: "hero", name: "goku", x: 140, y: 405 },
 			]
 		},
 		{   // Second level
-			foreground: 'desert-foreground',
-			background: 'clouds-background',
+			foreground: 'fg2',
+			background: 'bg2',
 			entities: [
 				{ type: "ground", name: "dirt", x: 500, y: 440, width: 1000, height: 20, isStatic: true },
 				{ type: "ground", name: "wood", x: 185, y: 390, width: 30, height: 80, isStatic: true },
@@ -445,20 +445,20 @@ var levels = {
 				{ type: "block", name: "glass", x: 770, y: 255, angle: 90, width: 100, height: 25 },
 				{ type: "block", name: "wood", x: 720, y: 192.5, width: 100, height: 25 },
 
-				{ type: "villain", name: "burger", x: 715, y: 155, calories: 590 },
-				{ type: "villain", name: "fries", x: 670, y: 405, calories: 420 },
-				{ type: "villain", name: "sodacan", x: 765, y: 400, calories: 150 },
+				{ type: "villain", name: "saibaman", x: 715, y: 155, calories: 590 },
+				{ type: "villain", name: "saibamanblue", x: 670, y: 405, calories: 420 },
+				{ type: "villain", name: "saibamanpurple", x: 765, y: 400, calories: 150 },
 
-				{ type: "hero", name: "strawberry", x: 30, y: 415 },
-				{ type: "hero", name: "orange", x: 80, y: 405 },
-				{ type: "hero", name: "apple", x: 140, y: 405 },
+				{ type: "hero", name: "piccolo", x: 30, y: 415 },
+				{ type: "hero", name: "vegeta", x: 80, y: 405 },
+				{ type: "hero", name: "goku", x: 140, y: 405 },
 			]
 		}
 		,
 		{
 			//Third level
-			foreground: 'river-foreground',
-			background: 'redclouds-background',
+			foreground: 'fg3',
+			background: 'bg3',
 			entities: [
 				{ type: "ground", name: "dirt", x: 500, y: 440, width: 1000, height: 20, isStatic: true },
 				{ type: "ground", name: "wood", x: 185, y: 390, width: 30, height: 80, isStatic: true },
@@ -473,13 +473,13 @@ var levels = {
 				{ type: "block", name: "glass", x: 770, y: 255, angle: 90, width: 100, height: 25 },
 				{ type: "block", name: "wood", x: 720, y: 192.5, width: 100, height: 25 },
 
-				{ type: "villain", name: "burger", x: 715, y: 155, calories: 590 },
-				{ type: "villain", name: "fries", x: 670, y: 405, calories: 420 },
-				{ type: "villain", name: "sodacan", x: 765, y: 400, calories: 150 },
+				{ type: "villain", name: "saibaman", x: 715, y: 155, calories: 590 },
+				{ type: "villain", name: "saibamanblue", x: 670, y: 405, calories: 420 },
+				{ type: "villain", name: "saibamanpurple", x: 765, y: 400, calories: 150 },
 
-				{ type: "hero", name: "strawberry", x: 30, y: 415 },
-				{ type: "hero", name: "orange", x: 80, y: 405 },
-				{ type: "hero", name: "apple", x: 140, y: 405 },
+				{ type: "hero", name: "piccolo", x: 30, y: 415 },
+				{ type: "hero", name: "vegeta", x: 80, y: 405 },
+				{ type: "hero", name: "goku", x: 140, y: 405 },
 			]
 		}
 	],
@@ -599,6 +599,53 @@ var entities = {
 			density: 2.0,
 			friction: 0.5,
 			restitution: 0.4,
+		},
+		"goku": {
+			shape: "circle",
+			radius: 25,
+			density: 1.5,
+			friction: 0.5,
+			restitution: 0.4,
+		},
+		"vegeta": {
+			shape: "circle",
+			radius: 25,
+			density: 1.5,
+			friction: 0.5,
+			restitution: 0.4,
+		},
+		"piccolo": {
+			shape: "circle",
+			radius: 25,
+			density: 2.0,
+			friction: 0.5,
+			restitution: 0.4,
+		},
+		"saibaman": {
+			shape: "circle",
+			fullHealth: 40,
+			radius: 25,
+			density: 1,
+			friction: 0.5,
+			restitution: 0.4,
+		},
+		"saibamanblue": {
+			shape: "rectangle",
+			fullHealth: 50,
+			width: 50,
+			height: 50,
+			density: 1,
+			friction: 0.5,
+			restitution: 0.6,
+		},
+		"saibamanpurple": {
+			shape: "rectangle",
+			fullHealth: 80,
+			width: 50,
+			height: 50,
+			density: 1,
+			friction: 0.5,
+			restitution: 0.7,
 		},
 	},
 	// take the entity, create a box2d body and add it to the world

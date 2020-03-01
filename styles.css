@@ -34,7 +34,7 @@
 	margin:20px;
 	cursor:pointer;
 	background:url(images/icons/level.png) no-repeat;
-	color:yellow;
+	color:black;
 	font-size: 20px;
 	width:64px;
 	height:64px;
@@ -47,9 +47,8 @@
 }
 
 #loadingmessage {
-    margin-top:400px;
 	text-align:center;
-	height:48px;
+	height:inherit;
 	color:white;
 	background:url(images/loader.gif) no-repeat center;
 	font:12px Arial;
