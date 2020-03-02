@@ -49,9 +49,8 @@ var game = {
 
 		// Load All Sound Effects and Background Music
 
-		//"Kindergarten" by Gurdonark
-		//http://ccmixter.org/files/gurdonark/26491 is licensed under a Creative Commons license
-		game.backgroundMusic = loader.loadSound('audio/gurdonark-kindergarten');
+		// Dragon Ball soundtrack. All credits to their respective owners
+		game.backgroundMusic = loader.loadSound('audio/the-fearsome-ginyu-special-force');
 
 		game.slingshotReleasedSound = loader.loadSound("audio/released");
 		game.bounceSound = loader.loadSound('audio/bounce');
@@ -91,6 +90,8 @@ var game = {
 		}
 	},
 	showLevelScreen: function () {
+		game.ended = true;
+		game.stopBackgroundMusic();
 		$('.gamelayer').hide();
 		$('#levelselectscreen').show('slow');
 	},
@@ -357,7 +358,7 @@ var game = {
 				if (entityX < 0 || entityX > game.currentLevel.foregroundImage.width || (entity.health && entity.health < 0)) {
 					box2d.world.DestroyBody(body);
 					if (entity.type == "villain") {
-						game.score += entity.calories;
+						game.score += entity.points;
 						$('#score').html('Score: ' + game.score);
 					}
 					if (entity.breakSound) {
@@ -418,11 +419,11 @@ var levels = {
 
 				{ type: "block", name: "wood", x: 520, y: 380, angle: 90, width: 100, height: 25 },
 				{ type: "block", name: "glass", x: 520, y: 280, angle: 90, width: 100, height: 25 },
-				{ type: "villain", name: "saibaman", x: 520, y: 205, calories: 590 },
+				{ type: "villain", name: "saibaman", x: 520, y: 205, points: 590 },
 
 				{ type: "block", name: "wood", x: 620, y: 380, angle: 90, width: 100, height: 25 },
 				{ type: "block", name: "glass", x: 620, y: 280, angle: 90, width: 100, height: 25 },
-				{ type: "villain", name: "saibamanblue", x: 620, y: 205, calories: 420 },
+				{ type: "villain", name: "saibamanblue", x: 620, y: 205, points: 420 },
 
 				{ type: "hero", name: "piccolo", x: 80, y: 405 },
 				{ type: "hero", name: "goku", x: 140, y: 405 },
@@ -445,9 +446,9 @@ var levels = {
 				{ type: "block", name: "glass", x: 770, y: 255, angle: 90, width: 100, height: 25 },
 				{ type: "block", name: "wood", x: 720, y: 192.5, width: 100, height: 25 },
 
-				{ type: "villain", name: "saibaman", x: 715, y: 155, calories: 590 },
-				{ type: "villain", name: "saibamanblue", x: 670, y: 405, calories: 420 },
-				{ type: "villain", name: "saibamanpurple", x: 765, y: 400, calories: 150 },
+				{ type: "villain", name: "saibaman", x: 715, y: 155, points: 590 },
+				{ type: "villain", name: "saibamanblue", x: 670, y: 405, points: 420 },
+				{ type: "villain", name: "saibamanpurple", x: 765, y: 400, points: 150 },
 
 				{ type: "hero", name: "piccolo", x: 30, y: 415 },
 				{ type: "hero", name: "vegeta", x: 80, y: 405 },
@@ -463,19 +464,26 @@ var levels = {
 				{ type: "ground", name: "dirt", x: 500, y: 440, width: 1000, height: 20, isStatic: true },
 				{ type: "ground", name: "wood", x: 185, y: 390, width: 30, height: 80, isStatic: true },
 
-				{ type: "block", name: "wood", x: 820, y: 380, angle: 90, width: 100, height: 25 },
-				{ type: "block", name: "wood", x: 720, y: 380, angle: 90, width: 100, height: 25 },
+				{ type: "block", name: "glass", x: 820, y: 380, angle: 90, width: 100, height: 25 },
+				{ type: "block", name: "glass", x: 720, y: 380, angle: 90, width: 100, height: 25 },
 				{ type: "block", name: "wood", x: 620, y: 380, angle: 90, width: 100, height: 25 },
+				{ type: "block", name: "wood", x: 920, y: 380, angle: 90, width: 100, height: 25 },
 				{ type: "block", name: "glass", x: 670, y: 317.5, width: 100, height: 25 },
-				{ type: "block", name: "glass", x: 770, y: 317.5, width: 100, height: 25 },
+				{ type: "block", name: "wood", x: 770, y: 317.5, width: 100, height: 25 },
+				{ type: "block", name: "glass", x: 870, y: 317.5, width: 100, height: 25 },
 
 				{ type: "block", name: "glass", x: 670, y: 255, angle: 90, width: 100, height: 25 },
-				{ type: "block", name: "glass", x: 770, y: 255, angle: 90, width: 100, height: 25 },
+				{ type: "block", name: "glass", x: 870, y: 255, angle: 90, width: 100, height: 25 },
+				{ type: "block", name: "wood", x: 770, y: 255, angle: 90, width: 100, height: 25 },
 				{ type: "block", name: "wood", x: 720, y: 192.5, width: 100, height: 25 },
+				{ type: "block", name: "wood", x: 820, y: 192.5, width: 100, height: 25 },
+				{ type: "block", name: "wood", x: 720, y: 127.5, angle: 90, width: 100, height: 25 },
+				{ type: "block", name: "wood", x: 820, y: 127.5, angle: 90, width: 100, height: 25 },
+				{ type: "block", name: "wood", x: 770, y: 70, width: 100, height: 25 },
 
-				{ type: "villain", name: "saibaman", x: 715, y: 155, calories: 590 },
-				{ type: "villain", name: "saibamanblue", x: 670, y: 405, calories: 420 },
-				{ type: "villain", name: "saibamanpurple", x: 765, y: 400, calories: 150 },
+				{ type: "villain", name: "saibaman", x: 875, y: 400, points: 590 },
+				{ type: "villain", name: "saibamanblue", x: 670, y: 405, points: 420 },
+				{ type: "villain", name: "saibamanpurple", x: 765, y: 400, points: 150 },
 
 				{ type: "hero", name: "piccolo", x: 30, y: 415 },
 				{ type: "hero", name: "vegeta", x: 80, y: 405 },
