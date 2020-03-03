@@ -472,17 +472,12 @@ var levels = {
 				{ type: "block", name: "wood", x: 770, y: 317.5, width: 100, height: 25 },
 				{ type: "block", name: "glass", x: 870, y: 317.5, width: 100, height: 25 },
 
-				{ type: "block", name: "glass", x: 670, y: 255, angle: 90, width: 100, height: 25 },
-				{ type: "block", name: "glass", x: 870, y: 255, angle: 90, width: 100, height: 25 },
-				{ type: "block", name: "wood", x: 770, y: 255, angle: 90, width: 100, height: 25 },
-				{ type: "block", name: "floatingSteel", x: 720, y: 192.5, width: 100, height: 25 },
-				{ type: "block", name: "floatingSteel", x: 820, y: 192.5, width: 100, height: 25 },
+				{ type: "block", name: "glass", x: 720, y: 192, width: 100, height: 25, isStatic: true },
+				{ type: "block", name: "glass", x: 820, y: 192, width: 100, height: 25, isStatic: true },
 
-				{ type: "villain", name: "saibaman", x: 875, y: 400, points: 590 },
-				{ type: "villain", name: "saibamanblue", x: 670, y: 405, points: 420 },
-				{ type: "villain", name: "saibamanpurple", x: 765, y: 400, points: 150 },
-				{ type: "villain", name: "saibamanred", x: 820, y: 280, points: 250 },
-				{ type: "villain", name: "saibamanred", x: 720, y: 280, points: 250 },
+				{ type: "villain", name: "saibamanpurple", x: 875, y: 400, points: 590 },
+				{ type: "villain", name: "saibamanpurple", x: 670, y: 405, points: 420 },
+				{ type: "villain", name: "saibamanred", x: 765, y: 280, points: 250 },
 				{ type: "villain", name: "saibamanorange", x: 765, y: 160, points: 650 },
 
 				{ type: "hero", name: "piccolo", x: 30, y: 415 },
@@ -498,20 +493,14 @@ var levels = {
 				{ type: "ground", name: "dirt", x: 500, y: 440, width: 1000, height: 20, isStatic: true },
 				{ type: "ground", name: "wood", x: 185, y: 390, width: 30, height: 80, isStatic: true },
 
-				{ type: "block", name: "glass", x: 820, y: 380, angle: 90, width: 100, height: 25 },
-				{ type: "block", name: "glass", x: 720, y: 380, angle: 90, width: 100, height: 25 },
-				{ type: "block", name: "wood", x: 620, y: 380, angle: 90, width: 100, height: 25 },
-				{ type: "block", name: "wood", x: 920, y: 380, angle: 90, width: 100, height: 25 },
-				{ type: "block", name: "glass", x: 670, y: 317.5, width: 100, height: 25 },
-				{ type: "block", name: "floatingSteel", x: 770, y: 317.5, width: 100, height: 25 },
-				{ type: "block", name: "floatingSteel", x: 870, y: 317.5, width: 100, height: 25 },
+				{ type: "block", name: "glass", x: 700, y: 380, angle: 90, width: 100, height: 25, isStatic: true },
+				{ type: "block", name: "glass", x: 630, y: 380, angle: 90, width: 100, height: 25, isStatic: true },
+				// { type: "block", name: "glass", x: 670, y: 317.5, width: 100, height: 25 },
 
-				{ type: "block", name: "glass", x: 670, y: 255, angle: 90, width: 170, height: 100 },
+				{ type: "block", name: "glass", x: 665, y: 218, angle: 90, width: 220, height: 100, isStatic: true },
 				{ type: "block", name: "floatingSteel", x: 870, y: 255, angle: 90, width: 100, height: 40, isStatic: true },
 
-				{ type: "villain", name: "saibaman", x: 875, y: 400, points: 590 },
 				{ type: "villain", name: "saibamanblue", x: 670, y: 405, points: 420 },
-				{ type: "villain", name: "saibamanpurple", x: 765, y: 400, points: 150 },
 				{ type: "villain", name: "frieza", x: 870, y: 200, points: 950 },
 
 				{ type: "hero", name: "piccolo", x: 30, y: 415 },
