@@ -484,6 +484,7 @@ var levels = {
 				{ type: "villain", name: "saibaman", x: 875, y: 400, points: 590 },
 				{ type: "villain", name: "saibamanblue", x: 670, y: 405, points: 420 },
 				{ type: "villain", name: "saibamanpurple", x: 765, y: 400, points: 150 },
+				//{ type: "villain", name: "frieza", x: 765, y: 400, points: 150 },
 
 				{ type: "hero", name: "piccolo", x: 30, y: 415 },
 				{ type: "hero", name: "vegeta", x: 80, y: 405 },
@@ -647,6 +648,15 @@ var entities = {
 			restitution: 0.6,
 		},
 		"saibamanpurple": {
+			shape: "rectangle",
+			fullHealth: 80,
+			width: 50,
+			height: 50,
+			density: 1,
+			friction: 0.5,
+			restitution: 0.7,
+		},
+		"frieza": {
 			shape: "rectangle",
 			fullHealth: 80,
 			width: 50,
