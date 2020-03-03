@@ -475,16 +475,44 @@ var levels = {
 				{ type: "block", name: "glass", x: 670, y: 255, angle: 90, width: 100, height: 25 },
 				{ type: "block", name: "glass", x: 870, y: 255, angle: 90, width: 100, height: 25 },
 				{ type: "block", name: "wood", x: 770, y: 255, angle: 90, width: 100, height: 25 },
-				{ type: "block", name: "wood", x: 720, y: 192.5, width: 100, height: 25 },
-				{ type: "block", name: "wood", x: 820, y: 192.5, width: 100, height: 25 },
-				{ type: "block", name: "wood", x: 720, y: 127.5, angle: 90, width: 100, height: 25 },
-				{ type: "block", name: "wood", x: 820, y: 127.5, angle: 90, width: 100, height: 25 },
-				{ type: "block", name: "wood", x: 770, y: 70, width: 100, height: 25 },
+				{ type: "block", name: "floatingSteel", x: 720, y: 192.5, width: 100, height: 25 },
+				{ type: "block", name: "floatingSteel", x: 820, y: 192.5, width: 100, height: 25 },
 
 				{ type: "villain", name: "saibaman", x: 875, y: 400, points: 590 },
 				{ type: "villain", name: "saibamanblue", x: 670, y: 405, points: 420 },
 				{ type: "villain", name: "saibamanpurple", x: 765, y: 400, points: 150 },
-				{ type: "villain", name: "frieza", x: 820, y: 280, points: 950 },
+				{ type: "villain", name: "saibamanred", x: 820, y: 280, points: 250 },
+				{ type: "villain", name: "saibamanred", x: 720, y: 280, points: 250 },
+				{ type: "villain", name: "saibamanorange", x: 765, y: 160, points: 650 },
+
+				{ type: "hero", name: "piccolo", x: 30, y: 415 },
+				{ type: "hero", name: "vegeta", x: 80, y: 405 },
+				{ type: "hero", name: "goku", x: 140, y: 405 },
+			]
+		},
+		{
+			//Fourth level
+			foreground: 'fg2',
+			background: 'bg1',
+			entities: [
+				{ type: "ground", name: "dirt", x: 500, y: 440, width: 1000, height: 20, isStatic: true },
+				{ type: "ground", name: "wood", x: 185, y: 390, width: 30, height: 80, isStatic: true },
+
+				{ type: "block", name: "glass", x: 820, y: 380, angle: 90, width: 100, height: 25 },
+				{ type: "block", name: "glass", x: 720, y: 380, angle: 90, width: 100, height: 25 },
+				{ type: "block", name: "wood", x: 620, y: 380, angle: 90, width: 100, height: 25 },
+				{ type: "block", name: "wood", x: 920, y: 380, angle: 90, width: 100, height: 25 },
+				{ type: "block", name: "glass", x: 670, y: 317.5, width: 100, height: 25 },
+				{ type: "block", name: "floatingSteel", x: 770, y: 317.5, width: 100, height: 25 },
+				{ type: "block", name: "floatingSteel", x: 870, y: 317.5, width: 100, height: 25 },
+
+				{ type: "block", name: "glass", x: 670, y: 255, angle: 90, width: 170, height: 100 },
+				{ type: "block", name: "floatingSteel", x: 870, y: 255, angle: 90, width: 100, height: 40, isStatic: true },
+
+				{ type: "villain", name: "saibaman", x: 875, y: 400, points: 590 },
+				{ type: "villain", name: "saibamanblue", x: 670, y: 405, points: 420 },
+				{ type: "villain", name: "saibamanpurple", x: 765, y: 400, points: 150 },
+				{ type: "villain", name: "frieza", x: 870, y: 200, points: 950 },
 
 				{ type: "hero", name: "piccolo", x: 30, y: 415 },
 				{ type: "hero", name: "vegeta", x: 80, y: 405 },
@@ -677,6 +705,12 @@ var entities = {
 			density: 1,
 			friction: 0.5,
 			restitution: 0.7,
+		},
+		"floatingSteel": {
+			fullHealth: 2000,
+			density: 0.7,
+			friction: 0.4,
+			restitution: 0.4,
 		},
 	},
 	// take the entity, create a box2d body and add it to the world
@@ -977,66 +1011,6 @@ var loader = {
 	}
 };
 
-/*
-var loader = {
-	loaded:true,
-	loadedCount:0, // Assets that have been loaded so far
-	totalCount:0, // Total number of assets that need to be loaded
-
-	init:function(){
-		// check for sound support
-		var mp3Support,oggSupport;
-		var audio = document.createElement('audio');
-		if (audio.canPlayType) {
-	   		// Currently canPlayType() returns: "", "maybe" or "probably"
-	  		mp3Support = "" != audio.canPlayType('audio/mpeg');
-	  		oggSupport = "" != audio.canPlayType('audio/ogg; codecs="vorbis"');
-		} else {
-			//The audio tag is not supported
-			mp3Support = false;
-			oggSupport = false;
-		}
-
-		// Check for ogg, then mp3, and finally set soundFileExtn to undefined
-		loader.soundFileExtn = oggSupport?".ogg":mp3Support?".mp3":undefined;
-	},
-
-	loadImage:function(url){
-		this.totalCount++;
-		this.loaded = false;
-		$('#loadingscreen').show();
-		var image = new Image();
-		image.src = url;
-		image.onload = loader.itemLoaded;
-		return image;
-	},
-	soundFileExtn:".ogg",
-	loadSound:function(url){
-		this.totalCount++;
-		this.loaded = false;
-		$('#loadingscreen').show();
-		var audio = new Audio();
-		audio.src = url+loader.soundFileExtn;
-		audio.addEventListener("canplaythrough", loader.itemLoaded, false);
-		return audio;
-	},
-	itemLoaded:function(){
-		loader.loadedCount++;
-		$('#loadingmessage').html('Loaded '+loader.loadedCount+' of '+loader.totalCount);
-		if (loader.loadedCount === loader.totalCount){
-			// Loader has loaded completely..
-			loader.loaded = true;
-			// Hide the loading screen
-			$('#loadingscreen').hide();
-			//and call the loader.onload method if it exists
-			if(loader.onload){
-				loader.onload();
-				loader.onload = undefined;
-			}
-		}
-	}
-}
-*/
 var mouse = {
 	x: 0,
 	y: 0,
