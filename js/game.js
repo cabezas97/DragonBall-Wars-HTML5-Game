@@ -292,12 +292,21 @@ var game = {
 	showEndingScreen: function () {
 		game.stopBackgroundMusic();
 		if (game.mode == "level-success") {
-			if (game.currentLevel.number < levels.data.length - 1) {
+			if (game.currentLevel.number < levels.data.length - 2) {
 				$('#endingmessage').html('Level Complete. Well Done!!!');
 				$("#playnextlevel").show();
+
+				//TODO cambiar el icono
 			} else {
 				$('#endingmessage').html('All Levels Complete. Well Done!!!');
 				$("#playnextlevel").hide();
+
+				// Add the last lvl
+				$('#levelselectscreen').append('<input id="levelz" style="background: url(images/icons/levelZ.png)" type="button" value="' + 'Z' + '">');
+				$('#levelselectscreen input#levelz').click(function () {
+					levels.load(levels.data.length - 1);
+					$('#levelselectscreen').hide();
+				});
 			}
 		} else if (game.mode == "level-failure") {
 			$('#endingmessage').html('Failed. Play Again?');
@@ -447,8 +456,8 @@ var levels = {
 				{ type: "block", name: "wood", x: 720, y: 192.5, width: 100, height: 25 },
 
 				{ type: "villain", name: "saibaman", x: 715, y: 155, points: 590 },
-				{ type: "villain", name: "saibamanblue", x: 670, y: 405, points: 420 },
-				{ type: "villain", name: "saibamanpurple", x: 765, y: 400, points: 150 },
+				// { type: "villain", name: "saibamanblue", x: 670, y: 405, points: 420 },
+				// { type: "villain", name: "saibamanpurple", x: 765, y: 400, points: 150 },
 
 				{ type: "hero", name: "piccolo", x: 30, y: 415 },
 				{ type: "hero", name: "vegeta", x: 80, y: 405 },
@@ -475,10 +484,10 @@ var levels = {
 				{ type: "block", name: "glass", x: 720, y: 192, width: 100, height: 25, isStatic: true },
 				{ type: "block", name: "glass", x: 820, y: 192, width: 100, height: 25, isStatic: true },
 
-				{ type: "villain", name: "saibamanpurple", x: 875, y: 400, points: 590 },
+				// { type: "villain", name: "saibamanpurple", x: 875, y: 400, points: 590 },
 				{ type: "villain", name: "saibamanpurple", x: 670, y: 405, points: 420 },
-				{ type: "villain", name: "saibamanred", x: 765, y: 280, points: 250 },
-				{ type: "villain", name: "saibamanorange", x: 765, y: 160, points: 650 },
+				// { type: "villain", name: "saibamanred", x: 765, y: 280, points: 250 },
+				// { type: "villain", name: "saibamanorange", x: 765, y: 160, points: 650 },
 
 				{ type: "hero", name: "piccolo", x: 30, y: 415 },
 				{ type: "hero", name: "vegeta", x: 80, y: 405 },
@@ -513,10 +522,11 @@ var levels = {
 	// Initialize level selection screen
 	init: function () {
 		var html = "";
-		for (var i = 0; i < levels.data.length; i++) {
+		for (var i = 0; i < levels.data.length - 1; i++) {
 			var level = levels.data[i];
-			html += '<input type="button" value="' + (i + 1) + '">';
+			html += '<input id="level' + i + '" type="button" value="' + (i + 1) + '">';
 		};
+
 		$('#levelselectscreen').html(html);
 
 		// Set the button click event handlers to load level
