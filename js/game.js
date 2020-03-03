@@ -484,7 +484,7 @@ var levels = {
 				{ type: "villain", name: "saibaman", x: 875, y: 400, points: 590 },
 				{ type: "villain", name: "saibamanblue", x: 670, y: 405, points: 420 },
 				{ type: "villain", name: "saibamanpurple", x: 765, y: 400, points: 150 },
-				//{ type: "villain", name: "frieza", x: 765, y: 400, points: 150 },
+				{ type: "villain", name: "frieza", x: 820, y: 280, points: 950 },
 
 				{ type: "hero", name: "piccolo", x: 30, y: 415 },
 				{ type: "hero", name: "vegeta", x: 80, y: 405 },
