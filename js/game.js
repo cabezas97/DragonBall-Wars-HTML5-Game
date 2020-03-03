@@ -9,6 +9,9 @@ var b2PolygonShape = Box2D.Collision.Shapes.b2PolygonShape;
 var b2CircleShape = Box2D.Collision.Shapes.b2CircleShape;
 var b2DebugDraw = Box2D.Dynamics.b2DebugDraw;
 
+// Var to check which levels are completed
+var lvlComplete = [false, false, false, false];
+
 // Setup requestAnimationFrame and cancelAnimationFrame for use in the game code
 (function () {
 	var lastTime = 0;
@@ -292,6 +295,9 @@ var game = {
 	showEndingScreen: function () {
 		game.stopBackgroundMusic();
 		if (game.mode == "level-success") {
+			// Change level icon to complete level icon
+			$('#level' + game.currentLevel.number).css("background","url(images/icons/levelComplete.png)");
+
 			if (game.currentLevel.number < levels.data.length - 2) {
 				$('#endingmessage').html('Level Complete. Well Done!!!');
 				$("#playnextlevel").show();
