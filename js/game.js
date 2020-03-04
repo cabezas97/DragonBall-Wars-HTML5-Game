@@ -469,8 +469,8 @@ var levels = {
 				{ type: "block", name: "wood", x: 720, y: 192.5, width: 100, height: 25 },
 
 				{ type: "villain", name: "saibaman", x: 715, y: 155, points: 590 },
-				// { type: "villain", name: "saibamanblue", x: 670, y: 405, points: 420 },
-				// { type: "villain", name: "saibamanpurple", x: 765, y: 400, points: 150 },
+				{ type: "villain", name: "saibamanblue", x: 670, y: 405, points: 420 },
+				{ type: "villain", name: "saibamanpurple", x: 765, y: 400, points: 150 },
 
 				{ type: "hero", name: "piccolo", x: 30, y: 415 },
 				{ type: "hero", name: "vegeta", x: 80, y: 405 },
@@ -497,10 +497,10 @@ var levels = {
 				{ type: "block", name: "glass", x: 720, y: 192, width: 100, height: 25, isStatic: true },
 				{ type: "block", name: "glass", x: 820, y: 192, width: 100, height: 25, isStatic: true },
 
-				// { type: "villain", name: "saibamanpurple", x: 875, y: 400, points: 590 },
+				{ type: "villain", name: "saibamanpurple", x: 875, y: 400, points: 590 },
 				{ type: "villain", name: "saibamanpurple", x: 670, y: 405, points: 420 },
-				// { type: "villain", name: "saibamanred", x: 765, y: 280, points: 250 },
-				// { type: "villain", name: "saibamanorange", x: 765, y: 160, points: 650 },
+				{ type: "villain", name: "saibamanred", x: 765, y: 280, points: 250 },
+				{ type: "villain", name: "saibamanorange", x: 765, y: 160, points: 650 },
 
 				{ type: "hero", name: "piccolo", x: 30, y: 415 },
 				{ type: "hero", name: "vegeta", x: 80, y: 405 },
