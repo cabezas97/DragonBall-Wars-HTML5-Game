@@ -54,7 +54,7 @@ var game = {
 
 		// Dragon Ball soundtrack. All credits to their respective owners
 		game.backgroundMusic = loader.loadSound('audio/the-fearsome-ginyu-special-force');
-
+		game.villainDeathSound = loader.loadSound('audio/oof');
 		game.slingshotReleasedSound = loader.loadSound("audio/released");
 		game.bounceSound = loader.loadSound('audio/bounce');
 		game.breakSound = {
@@ -380,6 +380,7 @@ var game = {
 				if (entityX < 0 || entityX > game.currentLevel.foregroundImage.width || (entity.health && entity.health < 0)) {
 					box2d.world.DestroyBody(body);
 					if (entity.type == "villain") {
+						game.villainDeathSound.play();
 						game.score += entity.points;
 						$('#score').html('Score: ' + game.score);
 					}
