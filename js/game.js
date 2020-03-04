@@ -544,8 +544,8 @@ var levels = {
 				{ type: "ground", name: "wood", x: 185, y: 390, width: 30, height: 80, isStatic: true },
 
 				{ type: "block", name: "floatingSteel", x: 870, y: 255, angle: 90, width: 100, height: 40, isStatic: true },
-				{ type: "block", name: "wood", x: 400, y: 225, angle: 180, width: 80, height: 20 },
-				{ type: "block", name: "wood", x: 600, y: 280, angle: 180, width: 80, height: 20 },
+				{ type: "block", name: "wood", x: 400, y: 225, angle: 180, width: 80, height: 20, isStatic: true },
+				{ type: "block", name: "wood", x: 600, y: 280, angle: 180, width: 80, height: 20, isStatic: true },
 
 				{ type: "villain", name: "saibaman", x: 400, y: 205, points: 700 },
 				{ type: "villain", name: "saibaman", x: 600, y: 260, points: 700 },
