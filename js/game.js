@@ -535,7 +535,6 @@ var levels = {
 			]
 		},
 		{
-			// TODO Change enemies
 			//Fifth (Z) level
 			foreground: 'fg3',
 			background: 'bg2',
@@ -547,13 +546,12 @@ var levels = {
 				{ type: "block", name: "wood", x: 400, y: 225, angle: 180, width: 80, height: 20, isStatic: true },
 				{ type: "block", name: "wood", x: 600, y: 280, angle: 180, width: 80, height: 20, isStatic: true },
 
-				{ type: "villain", name: "saibaman", x: 400, y: 205, points: 700 },
-				{ type: "villain", name: "saibaman", x: 600, y: 260, points: 700 },
-				{ type: "villain", name: "saibaman", x: 870, y: 200, points: 950 },
+				{ type: "villain", name: "juice", x: 400, y: 205, points: 700 },
+				{ type: "villain", name: "burter", x: 600, y: 260, points: 700 },
+				{ type: "villain", name: "ginyu", x: 870, y: 200, points: 950 },
 
-				{ type: "hero", name: "piccolo", x: 30, y: 415 },
-				{ type: "hero", name: "vegeta", x: 80, y: 405 },
-				{ type: "hero", name: "goku", x: 140, y: 405 },
+				{ type: "hero", name: "goku", x: 80, y: 405 },
+				{ type: "hero", name: "vegeta", x: 140, y: 405 },
 			]
 		}
 	],
@@ -748,6 +746,30 @@ var entities = {
 			fullHealth: 2000,
 			density: 0.7,
 			friction: 0.4,
+			restitution: 0.4,
+		},
+		"ginyu": {
+			shape: "circle",
+			fullHealth: 40,
+			radius: 25,
+			density: 1,
+			friction: 0.5,
+			restitution: 0.4,
+		},
+		"juice": {
+			shape: "circle",
+			fullHealth: 40,
+			radius: 25,
+			density: 1,
+			friction: 0.5,
+			restitution: 0.4,
+		},
+		"burter": {
+			shape: "circle",
+			fullHealth: 40,
+			radius: 25,
+			density: 1,
+			friction: 0.5,
 			restitution: 0.4,
 		},
 	},
