@@ -295,6 +295,11 @@ var game = {
 	showEndingScreen: function () {
 		game.stopBackgroundMusic();
 		if (game.mode == "level-success") {
+
+			if(game.currentLevel.number === levels.data.length -1) {
+				$('#levelselectscreen input#levelz').css("background","url(images/icons/levelZComplete.png)");
+			}
+
 			// Change level icon to complete level icon
 			$('#level' + game.currentLevel.number).css("background","url(images/icons/levelComplete.png)");
 			// Check lvl as completed
@@ -308,11 +313,13 @@ var game = {
 				$("#playnextlevel").hide();
 
 				// Add the last lvl
-				$('#levelselectscreen').append('<input id="levelz" style="background: url(images/icons/levelZ.png)" type="button" value="' + 'Z' + '">');
-				$('#levelselectscreen input#levelz').click(function () {
-					levels.load(levels.data.length - 1);
-					$('#levelselectscreen').hide();
-				});
+				if(game.currentLevel.number !== levels.data.length -1) {
+					$('#levelselectscreen').append('<input id="levelz" style="background: url(images/icons/levelZ.png)" type="button" value="' + 'Z' + '">');
+					$('#levelselectscreen input#levelz').click(function () {
+						levels.load(levels.data.length - 1);
+						$('#levelselectscreen').hide();
+					});
+				}
 			}
 		} else if (game.mode == "level-failure") {
 			$('#endingmessage').html('Failed. Play Again?');
@@ -508,8 +515,8 @@ var levels = {
 				{ type: "ground", name: "dirt", x: 500, y: 440, width: 1000, height: 20, isStatic: true },
 				{ type: "ground", name: "wood", x: 185, y: 390, width: 30, height: 80, isStatic: true },
 
-				{ type: "block", name: "glass", x: 700, y: 380, angle: 90, width: 100, height: 25, isStatic: true },
-				{ type: "block", name: "glass", x: 630, y: 380, angle: 90, width: 100, height: 25, isStatic: true },
+				// { type: "block", name: "glass", x: 700, y: 380, angle: 90, width: 100, height: 25, isStatic: true },
+				// { type: "block", name: "glass", x: 630, y: 380, angle: 90, width: 100, height: 25, isStatic: true },
 				// { type: "block", name: "glass", x: 670, y: 317.5, width: 100, height: 25 },
 
 				{ type: "block", name: "glass", x: 665, y: 218, angle: 90, width: 220, height: 100, isStatic: true },
